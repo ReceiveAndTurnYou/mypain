@@ -1,12 +1,12 @@
 package com.example.mypain.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -14,43 +14,49 @@ public class product_tp {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long product_tp_id;
 
     @NotNull
-    private Long product_id;
+    String product_tp_type, product_tp_description;
 
-    @NotNull
-    String product_type, description;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product_Ttp")
+    private Set<product_wh> product_whSet = new HashSet<>();
+
+    public Set<product_wh> getProduct_whSet() {
+        return product_whSet;
+    }
+
 
     public product_tp()
     {}
 
-    public product_tp(Long product_id, String product_type, String description) {
-        this.product_id = product_id;
-        this.product_type = product_type;
-        this.description = description;
+    public Long getProduct_tp_id() {
+        return product_tp_id;
     }
 
-    public Long getProduct_id() {
-        return product_id;
+    public void setProduct_tp_id(Long product_tp_id) {
+        this.product_tp_id = product_tp_id;
     }
 
-    public void setProduct_id(Long product_id) {
-        this.product_id = product_id;
+    public String getProduct_tp_type() {
+        return product_tp_type;
     }
 
-    public String getProduct_type() {
-        return product_type;
+    public void setProduct_tp_type(String product_tp_type) {
+        this.product_tp_type = product_tp_type;
     }
 
-    public void setProduct_type(String product_type) {
-        this.product_type = product_type;
+    public String getProduct_tp_description() {
+        return product_tp_description;
     }
 
-    public String getDescription() {
-        return description;
+    public void setProduct_tp_description(String product_tp_description) {
+        this.product_tp_description = product_tp_description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProduct_whSet(Set<product_wh> product_whSet) {
+        this.product_whSet = product_whSet;
     }
 }

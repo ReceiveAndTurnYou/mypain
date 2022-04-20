@@ -1,10 +1,8 @@
 package com.example.mypain.models;
 
 import com.sun.istack.NotNull;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 
 /////////////ДОДЕЛАТЬ СВЯЗКА С PRODUCT_TP //////////////
@@ -18,6 +16,17 @@ public class product_wh {
 
     @NotNull
     String product_number, product_type, product_density, product_conditions, product_count;
+
+
+    public product_tp getProduct_Ttp() {
+        return product_Ttp;
+    }
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="product_type_id", referencedColumnName = "product_tp_id")
+    private product_tp product_Ttp;
+
+
 
     public product_wh() {
     }
