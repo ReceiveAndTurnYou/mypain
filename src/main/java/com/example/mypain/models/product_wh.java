@@ -18,15 +18,14 @@ public class product_wh {
     String product_number, product_type, product_density, product_conditions, product_count;
 
 
-    public product_tp getProduct_Ttp() {
-        return product_Ttp;
-    }
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="product_type_id", referencedColumnName = "product_tp_id")
     private product_tp product_Ttp;
 
 
+    public product_tp getProduct_Ttp() {
+        return product_Ttp;
+    }
 
     public product_wh() {
     }

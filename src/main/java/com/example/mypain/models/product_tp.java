@@ -32,6 +32,13 @@ public class product_tp {
     public product_tp()
     {}
 
+    public product_tp(Long product_tp_id, String product_tp_type, String product_tp_description, Set<product_wh> product_whSet) {
+        this.product_tp_id = product_tp_id;
+        this.product_tp_type = product_tp_type;
+        this.product_tp_description = product_tp_description;
+        this.product_whSet = product_whSet;
+    }
+
     public Long getProduct_tp_id() {
         return product_tp_id;
     }

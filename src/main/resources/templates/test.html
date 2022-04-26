@@ -14,7 +14,19 @@
 
 <div class="container mt-5">
 
+    <h1>Мои пользователи</h1>
 
+    <div th:each="el : ${users}" class="alert alert-info mt-2">
+
+        <h3 th:text="${el.user_name}"/>
+        <p th:text="${el.surname}"></p>
+        <p th:text="${el.login}"></p>
+        <p th:text="${el.password}"></p>
+        <p th:text="${el.country}"></p>
+        <p th:text="${el.email}"></p>
+
+        <a th:href="'/blog/' + ${el.id}" class="btn btn-warning">Детальнее</a>
+    </div>
 
 
 
