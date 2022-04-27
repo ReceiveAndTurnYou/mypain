@@ -60,7 +60,7 @@ public class RegistrationController {
     {
         users user =new users(user_name, surname, login, password, country, email);
 
-        userService.saveUser(user);
+        userRepository.save(user);
 
         return "redirect:/";
     }
