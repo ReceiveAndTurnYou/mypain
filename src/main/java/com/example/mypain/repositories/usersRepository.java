@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import com.example.mypain.models.users;
 
 public interface usersRepository extends JpaRepository<users, Long> {
-    users findByLogin(String login);
+    users findByusername(String username);
 }

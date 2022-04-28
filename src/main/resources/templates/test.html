@@ -14,11 +14,19 @@
 
 <div class="container mt-5">
 
+    <div>
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+
+
     <h1>Мои пользователи</h1>
 
     <div th:each="el : ${users}" class="alert alert-info mt-2">
 
-        <h3 th:text="${el.user_name}"/>
+        <h3 th:text="${el.username}"/>
         <p th:text="${el.surname}"></p>
         <p th:text="${el.login}"></p>
         <p th:text="${el.password}"></p>

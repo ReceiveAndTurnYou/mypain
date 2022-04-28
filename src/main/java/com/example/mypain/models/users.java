@@ -1,11 +1,7 @@
 package com.example.mypain.models;
 
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -15,15 +11,37 @@ public class users {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long users_id;
 
-    private String user_name, surname, login, password, country, email;
+    private String username, surname, login, password, country, email;
 
+    private boolean active;
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public users() {
     }
 
-    public users(long users_id, String user_name, String surname, String login, String password, String country, String email) {
+    public users(long users_id, String username, String surname, String login, String password, String country, String email) {
         this.users_id = users_id;
-        this.user_name = user_name;
+        this.username = username;
         this.surname = surname;
         this.login = login;
         this.password = password;
@@ -31,8 +49,8 @@ public class users {
         this.email = email;
     }
 
-    public users(String user_name, String surname, String login, String password, String country, String email) {
-        this.user_name = user_name;
+    public users(String username, String surname, String login, String password, String country, String email) {
+        this.username = username;
         this.surname = surname;
         this.login = login;
         this.password = password;
@@ -56,12 +74,12 @@ public class users {
         this.users_id = users_id;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getSurname() {

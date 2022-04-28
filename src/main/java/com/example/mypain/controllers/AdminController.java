@@ -1,3 +1,4 @@
+/*
 package com.example.mypain.controllers;
 
 import com.example.mypain.service.usersService;
@@ -59,3 +60,4 @@ public class AdminController {
 
 
 }
+*/
