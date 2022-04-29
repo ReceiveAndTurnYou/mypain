@@ -20,24 +20,24 @@ public class product_tp {
     String product_tp_type, product_tp_description;
 
 
-    @JsonIgnore
+   /* @JsonIgnore
     @OneToMany(mappedBy = "product_Ttp")
     private Set<product_wh> product_whSet = new HashSet<>();
 
     public Set<product_wh> getProduct_whSet() {
         return product_whSet;
-    }
+    }*/
 
 
     public product_tp()
     {}
 
-    public product_tp(Long product_tp_id, String product_tp_type, String product_tp_description, Set<product_wh> product_whSet) {
+  /*  public product_tp(Long product_tp_id, String product_tp_type, String product_tp_description, Set<product_wh> product_whSet) {
         this.product_tp_id = product_tp_id;
         this.product_tp_type = product_tp_type;
         this.product_tp_description = product_tp_description;
         this.product_whSet = product_whSet;
-    }
+    }*/
 
     public Long getProduct_tp_id() {
         return product_tp_id;
@@ -63,7 +63,7 @@ public class product_tp {
         this.product_tp_description = product_tp_description;
     }
 
-    public void setProduct_whSet(Set<product_wh> product_whSet) {
+    /*public void setProduct_whSet(Set<product_wh> product_whSet) {
         this.product_whSet = product_whSet;
-    }
+    }*/
 }
