@@ -65,6 +65,7 @@ public class RegistrationController {
             user.setFilename(resultFileName);
         }
 
+
         user.setRoles(Collections.singleton(Role.USER));
         user.setActive(true);
         userRepository.save(user);
@@ -72,32 +73,5 @@ public class RegistrationController {
 
         return "redirect:/login";
     }
-
-
-
-
-/*@PostMapping("/registration")
-    public String addUser(@ModelAttribute("userForm") users userForm, BindingResult bindingResult, Model model)
-    {
-        if(bindingResult.hasErrors())
-        {
-            return "registration";
-        }
-
-        if(!userForm.getPassword().equals(userForm.getPasswordConfirm()))
-        {
-            model.addAttribute("passwordError","Пароли не совпадают");
-            return "registration";
-        }
-
-        if(!userService.saveUser(userForm))
-        {
-            model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
-            return "registration";
-        }
-
-        return "redirect:/";
-    }*/
-
 
 }

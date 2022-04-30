@@ -22,40 +22,18 @@ public class MainController {
     product_whRepository productWhRepository;
 
     @GetMapping("/")
-    public String welcome(Model model) {
-        model.addAttribute("title", "Главная страница");
+    public String welcome() {
         return "welcome-page";
     }
 
-    @GetMapping("/test")
+    @GetMapping("/home")
     public String test(Model model)
     {
         Iterable<users> user = userRepository.findAll();
 
         model.addAttribute("users", user);
-        model.addAttribute("title", "О нас");
 
-        Iterable<product_wh> prods = productWhRepository.findAll();
-
-        model.addAttribute("prods", prods);
-        return "test";
-    }
-
-    @GetMapping("/addnewsupply")
-    public String addNewSupply()
-    {
-        return "addnewsupply";
-    }
-
-    @PostMapping("/addnewsupply")
-    public String NewSupply(@RequestParam String product_number, @RequestParam String product_type, @RequestParam String product_density, @RequestParam String product_conditions, @RequestParam String product_count,
-    @AuthenticationPrincipal users user)
-    {
-        product_wh prod_wh = new product_wh(product_number, product_type, product_density, product_count, product_density, user);
-
-        productWhRepository.save(prod_wh);
-
-        return "redirect:/test";
+        return "home";
     }
 }
 

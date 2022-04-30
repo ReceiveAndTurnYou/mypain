@@ -28,16 +28,6 @@ public class product_wh {
         this.owner = owner;
     }
 
-/*
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="product_type_id", referencedColumnName = "product_tp_id")
-    private product_tp product_Ttp;
-
-
-    public product_tp getProduct_Ttp() {
-        return product_Ttp;
-    }*/
-
     public product_wh() {
     }
 
@@ -48,15 +38,6 @@ public class product_wh {
         this.product_conditions = product_conditions;
         this.product_count = product_count;
         this.owner = user;
-    }
-
-    public product_wh(Long idproduct_wh, String product_number, String product_type, String product_density, String product_conditions, String product_count) {
-        this.idproduct_wh = idproduct_wh;
-        this.product_number = product_number;
-        this.product_type = product_type;
-        this.product_density = product_density;
-        this.product_conditions = product_conditions;
-        this.product_count = product_count;
     }
 
     public Long getIdproduct_wh() {

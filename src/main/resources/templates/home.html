@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://thymeleaf.org">
+      xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title> </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -26,36 +26,24 @@
         <a href="/addnewsupply"><button class="btn btn-lg px-5">Добавить новый товар</button></a>
     </div>
 
+<div sec:authorize="hasAuthority('ADMIN')">
 
     <h1>Мои пользователи</h1>
 
     <div th:each="el : ${users}" class="alert alert-info mt-2" >
 
-        <h3 th:text="${el.username}"/>
-        <p th:text="${el.surname}"></p>
-        <p th:text="${el.login}"></p>
-        <p th:text="${el.password}"></p>
-        <p th:text="${el.country}"></p>
-        <p th:text="${el.email}"></p>
-        <p th:if="${el.filename}"><img width="512" height="512" th:src="@{/img/{filename}(filename = ${el.filename})}"></p>
+        <h3 th:text="'Имя пользователя: ' + ${el.username}"/>
+        <p th:text="'Фамилия пользователя: ' + ${el.surname}"></p>
+        <p th:text="'Логин пользователя: ' + ${el.login}"></p>
+        <p th:text="'Пароль пользователя: ' + ${el.password}"></p>
+        <p th:text="'Страна пользователя: ' + ${el.country}"></p>
+        <p th:text="'Почта пользователя: ' + ${el.email}"></p>
+        <p th:if="${el.filename}"><img width="256" height="256" th:src="@{/img/{filename}(filename = ${el.filename})}"></p>
 
     </div>
-
-    <h1>ТОВАРЫ</h1>
-
-    <div th:each="el : ${prods}" class="alert alert-info mt-2">
-
-        <h3 th:text="${el.product_number}"/>
-        <p th:text="${el.product_type}"></p>
-        <p th:text="${el.product_density}"></p>
-        <p th:text="${el.product_conditions}"></p>
-        <p th:text="${el.product_count}"></p>
-        <p th:text="${el.owner.username}"></p>
-    </div>
-
 </div>
+</div>
+</body>
 
 <div th:insert="recycling/footer :: footer" ></div>
-
-</body>
 </html>
