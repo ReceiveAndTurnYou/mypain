@@ -18,6 +18,16 @@ public class users implements UserDetails {
 
     private boolean active;
 
+    private String filename;
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
     public boolean isActive() {
         return active;
     }

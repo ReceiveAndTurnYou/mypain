@@ -21,13 +21,15 @@
         </form>
     </div>
 
+
     <div>
-        <a href="/addnewsupply"><button class="btn btn-outline-light btn-lg px-5">Добавить новый товар</button></a>
+        <a href="/addnewsupply"><button class="btn btn-lg px-5">Добавить новый товар</button></a>
     </div>
+
 
     <h1>Мои пользователи</h1>
 
-    <div th:each="el : ${users}" class="alert alert-info mt-2">
+    <div th:each="el : ${users}" class="alert alert-info mt-2" >
 
         <h3 th:text="${el.username}"/>
         <p th:text="${el.surname}"></p>
@@ -35,7 +37,7 @@
         <p th:text="${el.password}"></p>
         <p th:text="${el.country}"></p>
         <p th:text="${el.email}"></p>
-
+        <p th:if="${el.filename}"><img width="512" height="512" th:src="@{/img/{filename}(filename = ${el.filename})}"></p>
 
     </div>
 
