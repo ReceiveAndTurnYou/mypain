@@ -18,14 +18,14 @@ public class product_whController {
     @Autowired
     private product_whRepository product_whRepository;
 
-    @GetMapping("/products")
+    /*@GetMapping("/products")
     public String productsList(Model model)
     {
         Iterable<product_wh> prods = product_whRepository.findAll();
         model.addAttribute("products", prods);
 
         return "products";
-    }
+    }*/
 
     @GetMapping("/addnewsupply")
     public String addNewSupply()
@@ -44,8 +44,6 @@ public class product_whController {
     public String NewSupply(@RequestParam int product_number, @RequestParam String product_type, @RequestParam String product_density, @RequestParam String product_conditions, @RequestParam int product_count,
                             @AuthenticationPrincipal users user)
     {
-
-
 
         product_wh prod_wh = new product_wh(product_number, product_type, product_density, product_conditions, product_count, user);
 
