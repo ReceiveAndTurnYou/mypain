@@ -20,15 +20,6 @@ public class product_tp {
     String product_tp_type, product_tp_description;
 
 
-   /* @JsonIgnore
-    @OneToMany(mappedBy = "product_Ttp")
-    private Set<product_wh> product_whSet = new HashSet<>();
-
-    public Set<product_wh> getProduct_whSet() {
-        return product_whSet;
-    }*/
-
-
     public product_tp()
     {}
 

@@ -27,7 +27,7 @@ public class MainController {
     }
 
     @GetMapping("/home")
-    public String test(Model model)
+    public String home(Model model)
     {
         Iterable<users> user = userRepository.findAll();
 
@@ -35,6 +35,13 @@ public class MainController {
 
         return "home";
     }
+
+    @GetMapping("/about")
+    public String about()
+    {
+        return "about";
+    }
+
 }
 
 
