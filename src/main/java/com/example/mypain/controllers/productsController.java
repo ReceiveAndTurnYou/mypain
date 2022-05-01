@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/products")
-@PreAuthorize("hasAuthority('ADMIN')")
 public class productsController {
     @Autowired
     product_whRepository productWhRepository;

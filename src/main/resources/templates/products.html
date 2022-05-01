@@ -33,8 +33,10 @@
                     </div>
                     <div class="card-footer text-muted">
                         <p th:text="'Владелец: ' + ${el.owner.username}" class="card-text"></p>
-                        <a class="btn btn-danger float-end" th:href="'/products/'  + ${el.idproduct_wh} + '/delete'">DELETE</a>
-                        <a class="btn btn-warning float-end" th:href="'/products/'  + ${el.idproduct_wh} + '/edit'">EDIT</a>
+                        <div sec:authorize="hasAuthority('ADMIN')">
+                            <a class="btn btn-danger float-end" th:href="'/products/'  + ${el.idproduct_wh} + '/delete'">DELETE</a>
+                            <a class="btn btn-warning float-end" th:href="'/products/'  + ${el.idproduct_wh} + '/edit'">EDIT</a>
+                        </div>
                     </div>
                 </div>
             </div>
