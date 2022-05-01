@@ -41,10 +41,13 @@ public class product_whController {
 
 
     @PostMapping("/addnewsupply")
-    public String NewSupply(@RequestParam String product_number, @RequestParam String product_type, @RequestParam String product_density, @RequestParam String product_conditions, @RequestParam String product_count,
+    public String NewSupply(@RequestParam int product_number, @RequestParam String product_type, @RequestParam String product_density, @RequestParam String product_conditions, @RequestParam int product_count,
                             @AuthenticationPrincipal users user)
     {
-        product_wh prod_wh = new product_wh(product_number, product_type, product_density, product_count, product_density, user);
+
+
+
+        product_wh prod_wh = new product_wh(product_number, product_type, product_density, product_conditions, product_count, user);
 
         product_whRepository.save(prod_wh);
 

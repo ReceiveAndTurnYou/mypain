@@ -16,14 +16,15 @@
 
     <div th:each="el : ${users}" class="alert alert-info mt-2">
 
-        <h3 th:text="${el.username}"/>
-        <p th:text="${el.surname}"></p>
-        <p th:text="${el.roles}"></p>
-        <p th:text="${el.login}"></p>
-        <p th:text="${el.password}"></p>
-        <p th:text="${el.country}"></p>
-        <p th:text="${el.email}"></p>
-        <a th:href="'/user/'  + ${el.users_id}">EDIT</a>
+        <h3 th:text="'Логин пользователя: ' + ${el.username}"/>
+        <p th:text="'Фамилия пользователя: ' + ${el.surname}"></p>
+        <p th:text="'Имя пользователя: ' + ${el.login}"></p>
+        <p th:text="'Пароль пользователя: ' + ${el.password}"></p>
+        <p th:text="'Страна пользователя: ' + ${el.country}"></p>
+        <p th:text="'Почта пользователя: ' + ${el.email}"></p>
+        <p th:if="${el.filename}"><img width="256" height="256" th:src="@{/img/{filename}(filename = ${el.filename})}"></p>
+        <a class="btn btn-warning" th:href="'/user/'  + ${el.users_id} + '/edit'">EDIT</a>
+        <a class="btn btn-danger" th:href="'/user/'  + ${el.users_id} + '/delete'">DELETE</a>
     </div>
 
 

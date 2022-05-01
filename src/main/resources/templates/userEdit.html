@@ -13,22 +13,22 @@
 
 
 <div class="container mt-5">
-    <form th:action="@{/user}" method="post">
-        <div><label> User Name : <input type="text" th:value="${user.username}" name="user_name" class="form-control"/> </label></div>
-        <div><label> Surname : <input type="text" th:value="${user.surname}" name="surname" class="form-control"/> </label></div>
+    <form th:action="@{/user} + '/edit'" method="post">
+        <div><label> Логин: <input type="text" th:value="${user.username}" name="user_name" class="form-control"/> </label></div>
+        <div><label> Фамилия : <input type="text" th:value="${user.surname}" name="surname" class="form-control"/> </label></div>
         <div>
-            Roles:
-            <div th:each="el : ${roles}">
+            Роли:
+            <div th:each="els : ${roles}">
                 <label>
                     <label th:text="${el}"></label>
-                    <input type="checkbox" th:name="${el}" th:checked="${#lists.contains(user.roles, el)}"/>
+                    <input type="checkbox" th:name="${els}" th:checked="${#lists.contains(user.roles, el)}"/>
                 </label>
             </div>
         </div>
-        <div><label> Login: <input type="text" th:value="${user.login}" name="login" class="form-control"/> </label></div>
-        <div><label> Password: <input type="text" th:value="${user.password}" name="password" class="form-control"/> </label></div>
-        <div><label> Country: <input type="text" th:value="${user.country}" name="country" class="form-control"/> </label></div>
-        <div><label> Email: <input type="text" th:value="${user.email}" name="email" class="form-control"/> </label></div>
+        <div><label> Имя: <input type="text" th:value="${user.login}" name="login" class="form-control"/> </label></div>
+        <div><label> Пароль: <input type="text" th:value="${user.password}" name="password" class="form-control"/> </label></div>
+        <div><label> Страна: <input type="text" th:value="${user.country}" name="country" class="form-control"/> </label></div>
+        <div><label> Электронная почта: <input type="text" th:value="${user.email}" name="email" class="form-control"/> </label></div>
         <label><input type="hidden" th:value="${user.users_id}" name="users_id" class="form-control"/> </label>
         <div> <button type="submit" class="btn btn-success">Сохранить изменения</button></div>
     </form>

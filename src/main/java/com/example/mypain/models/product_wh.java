@@ -14,7 +14,13 @@ public class product_wh {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idproduct_wh;
 
-    private String product_number, product_type, product_density, product_conditions, product_count;
+    /*private String product_number, product_type, product_density, product_conditions, product_count;*/
+
+    int product_number;
+    String product_type;
+    String product_density;
+    String product_conditions;
+    int product_count;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
@@ -31,7 +37,7 @@ public class product_wh {
     public product_wh() {
     }
 
-    public product_wh(String product_number, String product_type, String product_density, String product_conditions, String product_count, users user) {
+    public product_wh(int product_number, String product_type, String product_density, String product_conditions, int product_count, users user) {
         this.product_number = product_number;
         this.product_type = product_type;
         this.product_density = product_density;
@@ -48,13 +54,21 @@ public class product_wh {
         this.idproduct_wh = idproduct_wh;
     }
 
-    public String getProduct_number() {
+    public int getProduct_number() {
+        return product_number;
+    }
+
+    public void setProduct_number(int product_number) {
+        this.product_number = product_number;
+    }
+
+    /* public String getProduct_number() {
         return product_number;
     }
 
     public void setProduct_number(String product_number) {
         this.product_number = product_number;
-    }
+    }*/
 
     public String getProduct_type() {
         return product_type;
@@ -80,11 +94,20 @@ public class product_wh {
         this.product_conditions = product_conditions;
     }
 
-    public String getProduct_count() {
+    public int getProduct_count() {
+        return product_count;
+    }
+
+    public void setProduct_count(int product_count) {
+        this.product_count = product_count;
+    }
+
+
+    /* public String getProduct_count() {
         return product_count;
     }
 
     public void setProduct_count(String product_count) {
         this.product_count = product_count;
-    }
+    }*/
 }

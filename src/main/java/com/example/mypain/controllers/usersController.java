@@ -33,7 +33,7 @@ public class usersController {
         return "userList";
     }
 
-    @GetMapping("{user}")
+    @GetMapping("{user}/edit")
     public String userEditForm(@PathVariable users user, Model model)
     {
 
@@ -44,7 +44,19 @@ public class usersController {
         return "userEdit";
     }
 
-    @PostMapping
+    @GetMapping("{user}/delete")
+    public String userDeleteForm(@PathVariable users user, Model model)
+    {
+
+        model.addAttribute("user", user);
+        model.addAttribute("roles", Role.values());
+
+
+        return "userDelete";
+    }
+
+
+    @PostMapping("/edit")
     public String userSave(@RequestParam String user_name, @RequestParam Map<String, String> form,
                            @RequestParam("users_id") users user)
     {
@@ -68,5 +80,12 @@ public class usersController {
         return "redirect:/user";
     }
 
+    @PostMapping("/delete")
+    public String userDelete(@RequestParam("users_id") users user)
+    {
+        userRepository.deleteById(user.getUsers_id());
+
+        return "redirect:/user";
+    }
 
 }
