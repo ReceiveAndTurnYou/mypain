@@ -14,7 +14,7 @@ public class product_wh {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idproduct_wh;
 
-    int product_number;
+    int productnumber;
     String product_type;
     String product_density;
     String product_conditions;
@@ -35,8 +35,8 @@ public class product_wh {
     public product_wh() {
     }
 
-    public product_wh(int product_number, String product_type, String product_density, String product_conditions, int product_count, users user) {
-        this.product_number = product_number;
+    public product_wh(int productnumber, String product_type, String product_density, String product_conditions, int product_count, users user) {
+        this.productnumber = productnumber;
         this.product_type = product_type;
         this.product_density = product_density;
         this.product_conditions = product_conditions;
@@ -52,12 +52,12 @@ public class product_wh {
         this.idproduct_wh = idproduct_wh;
     }
 
-    public int getProduct_number() {
-        return product_number;
+    public int getProductnumber() {
+        return productnumber;
     }
 
-    public void setProduct_number(int product_number) {
-        this.product_number = product_number;
+    public void setProductnumber(int productnumber) {
+        this.productnumber = productnumber;
     }
 
     public String getProduct_type() {

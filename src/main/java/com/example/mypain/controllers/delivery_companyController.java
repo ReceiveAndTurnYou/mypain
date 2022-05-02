@@ -2,6 +2,7 @@ package com.example.mypain.controllers;
 
 import com.example.mypain.models.Role;
 import com.example.mypain.models.delivery_company;
+import com.example.mypain.models.product_wh;
 import com.example.mypain.models.users;
 import com.example.mypain.repositories.delivery_companyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -47,11 +49,11 @@ public class delivery_companyController {
     }
 
     @PostMapping("/addnewcompany")
-    public String newCompany(@RequestParam String company_name, @RequestParam String company_description, @RequestParam int trust_factor,
+    public String newCompany(@RequestParam String companyname, @RequestParam String company_description, @RequestParam int trust_factor,
                              @AuthenticationPrincipal users user)
     {
 
-        delivery_company deliveryCom = new delivery_company(company_name, company_description, trust_factor, user);
+        delivery_company deliveryCom = new delivery_company(companyname, company_description, trust_factor, user);
 
         delivery_companyRepository.save(deliveryCom);
 
@@ -79,4 +81,22 @@ public class delivery_companyController {
         return "redirect:/companies";
     }
 
+    @PostMapping("/companies/search")
+    public String searchProducts(@RequestParam String search, Model model)
+    {
+        List<delivery_company> companies;
+
+        if(search!=null && !search.isEmpty())
+        {
+            companies = delivery_companyRepository.findByCompanyname(search);
+        }
+        else
+        {
+            companies = (List<delivery_company>) delivery_companyRepository.findAll();
+        }
+
+        model.addAttribute("companies", companies);
+
+        return "companies";
+    }
 }

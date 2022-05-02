@@ -51,13 +51,13 @@ public class productsController {
 
 
     @PostMapping("/edit")
-    public String userSave(@RequestParam int product_number, @RequestParam String product_type,
+    public String userSave(@RequestParam int productnumber, @RequestParam String product_type,
                            @RequestParam String product_density, @RequestParam String product_conditions,
                            @RequestParam int product_count,
                            @RequestParam("idproduct_wh") product_wh prod)
     {
 
-        prod.setProduct_number(product_number);
+        prod.setProductnumber(productnumber);
         prod.setProduct_type(product_type);
         prod.setProduct_density(product_density);
         prod.setProduct_conditions(product_conditions);

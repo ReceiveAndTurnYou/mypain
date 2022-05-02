@@ -12,7 +12,7 @@ public class delivery_company {
     private Long iddelivery_company;
 
     @NotNull
-    String company_name, company_description;
+    String companyname, company_description;
     int trust_factor;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -27,8 +27,8 @@ public class delivery_company {
         this.owner = owner;
     }
 
-    public delivery_company(String company_name, String company_description, int trust_factor, users user) {
-        this.company_name = company_name;
+    public delivery_company(String companyname, String company_description, int trust_factor, users user) {
+        this.companyname = companyname;
         this.company_description = company_description;
         this.trust_factor = trust_factor;
         this.owner = user;
@@ -37,9 +37,9 @@ public class delivery_company {
     public delivery_company() {
     }
 
-    public delivery_company(Long iddelivery_company, String company_name, String company_description, int trust_factor) {
+    public delivery_company(Long iddelivery_company, String companyname, String company_description, int trust_factor) {
         this.iddelivery_company = iddelivery_company;
-        this.company_name = company_name;
+        this.companyname = companyname;
         this.company_description = company_description;
         this.trust_factor = trust_factor;
     }
@@ -52,12 +52,12 @@ public class delivery_company {
         this.iddelivery_company = iddelivery_company;
     }
 
-    public String getCompany_name() {
-        return company_name;
+    public String getCompanyname() {
+        return companyname;
     }
 
-    public void setCompany_name(String company_name) {
-        this.company_name = company_name;
+    public void setCompanyname(String companyname) {
+        this.companyname = companyname;
     }
 
     public String getCompany_description() {

@@ -18,17 +18,17 @@ public class product_order {
     private Long idproduct_order;
 
     @NotNull
-    String login, product_count, product_number, company_name, address, email, delivery_date;
+    String login, product_count, productnumber, companyname, address, email, delivery_date;
 
     public product_order() {
     }
 
-    public product_order(Long idproduct_order, String login, String product_count, String product_number, String company_name, String address, String email, String delivery_date) {
+    public product_order(Long idproduct_order, String login, String product_count, String productnumber, String companyname, String address, String email, String delivery_date) {
         this.idproduct_order = idproduct_order;
         this.login = login;
         this.product_count = product_count;
-        this.product_number = product_number;
-        this.company_name = company_name;
+        this.productnumber = productnumber;
+        this.companyname = companyname;
         this.address = address;
         this.email = email;
         this.delivery_date = delivery_date;
@@ -58,20 +58,20 @@ public class product_order {
         this.product_count = product_count;
     }
 
-    public String getProduct_number() {
-        return product_number;
+    public String getProductnumber() {
+        return productnumber;
     }
 
-    public void setProduct_number(String product_number) {
-        this.product_number = product_number;
+    public void setProductnumber(String productnumber) {
+        this.productnumber = productnumber;
     }
 
-    public String getCompany_name() {
-        return company_name;
+    public String getCompanyname() {
+        return companyname;
     }
 
-    public void setCompany_name(String company_name) {
-        this.company_name = company_name;
+    public void setCompanyname(String companyname) {
+        this.companyname = companyname;
     }
 
     public String getAddress() {
