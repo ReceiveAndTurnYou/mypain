@@ -18,6 +18,8 @@ public class users implements UserDetails {
 
     private boolean active;
 
+    private String activationCode;
+
     private String filename;
 
     public String getFilename() {
@@ -152,5 +154,12 @@ public class users implements UserDetails {
         this.email = email;
     }
 
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
+    }
 }
 

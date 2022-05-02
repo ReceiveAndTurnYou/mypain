@@ -13,9 +13,9 @@
 
 <div class="container mt-5">
     <form th:action="@{/addnewcompany}" method="post">
-        <div><label> Название компании : <input type="text" name="companyname" class="form-control"/> </label></div>
-        <div><label> Описание компании : <input type="textarea" name="company_description" class="form-control"/> </label></div>
-        <div><label> Лет на рынке: <input type="text" name="trust_factor" class="form-control"/> </label></div>
+        <div><label> Название компании : <input type="text" placeholder="Введите название компании..." name="companyname" class="form-control"/> </label></div>
+        <div><label> Описание компании : <input type="textarea" placeholder="Введите описание компании..." name="company_description" class="form-control"/> </label></div>
+        <div><label> Лет на рынке: <input type="text" placeholder="Введите количество лет на рынке" name="trust_factor" class="form-control"/> </label></div>
         <div> <button type="submit" class="btn btn-success">Добавить компанию</button></div>
     </form>
 
