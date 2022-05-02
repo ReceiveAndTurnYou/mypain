@@ -1,5 +1,6 @@
 package com.example.mypain.controllers;
 
+import com.example.mypain.models.Role;
 import com.example.mypain.models.delivery_company;
 import com.example.mypain.models.users;
 import com.example.mypain.repositories.delivery_companyRepository;
@@ -8,8 +9,14 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Controller
 public class delivery_companyController {
@@ -50,6 +57,26 @@ public class delivery_companyController {
 
 
         return "redirect:/companysuccess";
+    }
+
+
+    @GetMapping("/companies/{company}/delete")
+    public String companyDeleteForm(@PathVariable delivery_company company, Model model)
+    {
+
+        model.addAttribute("company", company);
+
+
+        return "companydelete";
+    }
+
+
+    @PostMapping("/companies/delete")
+    public String companyDelete(@RequestParam("iddelivery_company") delivery_company company)
+    {
+        delivery_companyRepository.deleteById(company.getIddelivery_company());
+
+        return "redirect:/companies";
     }
 
 }
