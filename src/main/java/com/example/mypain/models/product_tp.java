@@ -17,18 +17,16 @@ public class product_tp {
     private Long product_tp_id;
 
     @NotNull
-    String product_tp_type, product_tp_description;
+    String producttptype, product_tp_description;
 
 
     public product_tp()
     {}
 
-  /*  public product_tp(Long product_tp_id, String product_tp_type, String product_tp_description, Set<product_wh> product_whSet) {
-        this.product_tp_id = product_tp_id;
-        this.product_tp_type = product_tp_type;
+    public product_tp(String producttptype, String product_tp_description) {
+        this.producttptype = producttptype;
         this.product_tp_description = product_tp_description;
-        this.product_whSet = product_whSet;
-    }*/
+    }
 
     public Long getProduct_tp_id() {
         return product_tp_id;
@@ -38,12 +36,12 @@ public class product_tp {
         this.product_tp_id = product_tp_id;
     }
 
-    public String getProduct_tp_type() {
-        return product_tp_type;
+    public String getProducttptype() {
+        return producttptype;
     }
 
-    public void setProduct_tp_type(String product_tp_type) {
-        this.product_tp_type = product_tp_type;
+    public void setProducttptype(String producttptype) {
+        this.producttptype = producttptype;
     }
 
     public String getProduct_tp_description() {
@@ -54,7 +52,4 @@ public class product_tp {
         this.product_tp_description = product_tp_description;
     }
 
-    /*public void setProduct_whSet(Set<product_wh> product_whSet) {
-        this.product_whSet = product_whSet;
-    }*/
 }

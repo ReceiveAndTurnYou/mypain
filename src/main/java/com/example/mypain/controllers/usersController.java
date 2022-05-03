@@ -4,23 +4,31 @@ package com.example.mypain.controllers;
 import com.example.mypain.models.Role;
 import com.example.mypain.models.users;
 import com.example.mypain.repositories.usersRepository;
+import com.example.mypain.service.usersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/user")
-@PreAuthorize("hasAuthority('ADMIN')")
 public class usersController {
 
     @Autowired
     usersRepository userRepository;
 
+    @Autowired
+    usersService usersService;
+
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
     public String userList(Model model)
     {
@@ -30,6 +38,7 @@ public class usersController {
         return "userList";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("{user}/edit")
     public String userEditForm(@PathVariable users user, Model model)
     {
@@ -41,6 +50,7 @@ public class usersController {
         return "userEdit";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("{user}/delete")
     public String userDeleteForm(@PathVariable users user, Model model)
     {
@@ -52,7 +62,7 @@ public class usersController {
         return "userDelete";
     }
 
-
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/edit")
     public String userSave(@RequestParam String user_name, @RequestParam Map<String, String> form,
                            @RequestParam("users_id") users user)
@@ -71,12 +81,12 @@ public class usersController {
             }
         }
 
-
         userRepository.save(user);
 
         return "redirect:/user";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/delete")
     public String userDelete(@RequestParam("users_id") users user)
     {
@@ -85,6 +95,7 @@ public class usersController {
         return "redirect:/user";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/search")
     public String search(@RequestParam String search, Model model)
     {
@@ -103,5 +114,6 @@ public class usersController {
 
         return "userList";
     }
+
 
 }

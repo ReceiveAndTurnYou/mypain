@@ -1,10 +1,8 @@
 package com.example.mypain.models;
 
 import com.sun.istack.NotNull;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 
 ////////////////// ДОРАБОТАТЬ И СВЯЗКИ /////////////////////
@@ -17,7 +15,7 @@ public class product_order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idproduct_order;
 
-    @NotNull
+    /*@NotNull
     String login, product_count, productnumber, companyname, address, email, delivery_date;
 
     public product_order() {
@@ -32,7 +30,7 @@ public class product_order {
         this.address = address;
         this.email = email;
         this.delivery_date = delivery_date;
-    }
+    }*/
 
     public Long getIdproduct_order() {
         return idproduct_order;
@@ -42,7 +40,64 @@ public class product_order {
         this.idproduct_order = idproduct_order;
     }
 
-    public String getLogin() {
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name="user_id")
+    private users client;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name="product_tp_id")
+    private product_tp productTypeName;
+
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name="iddelivery_company")
+    private delivery_company company;
+
+    private String orderDate;
+
+    public product_order() {
+    }
+
+    public product_order(users user, product_tp productTypeName, delivery_company company, String orderDate) {
+        this.client = user;
+        this.productTypeName = productTypeName;
+        this.company = company;
+        this.orderDate = orderDate;
+    }
+
+    public users getClient() {
+        return client;
+    }
+
+    public void setClient(users client) {
+        this.client = client;
+    }
+
+    public product_tp getProductTypeName() {
+        return productTypeName;
+    }
+
+    public void setProductTypeName(product_tp productTypeName) {
+        this.productTypeName = productTypeName;
+    }
+
+    public delivery_company getCompany() {
+        return company;
+    }
+
+    public void setCompany(delivery_company company) {
+        this.company = company;
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    /*public String getLogin() {
         return login;
     }
 
@@ -96,5 +151,5 @@ public class product_order {
 
     public void setDelivery_date(String delivery_date) {
         this.delivery_date = delivery_date;
-    }
+    }*/
 }

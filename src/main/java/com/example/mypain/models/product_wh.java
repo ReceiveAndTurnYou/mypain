@@ -3,8 +3,7 @@ package com.example.mypain.models;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-
-
+import com.example.mypain.models.product_tp;
 /////////////ДОДЕЛАТЬ СВЯЗКА С PRODUCT_TP //////////////
 
 @Entity
@@ -23,6 +22,21 @@ public class product_wh {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
     private users owner;
+
+    /*@ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="producttptype")
+    private product_tp product_tp;
+
+
+    public product_tp getProduct_tp() {
+        return product_tp;
+    }
+
+    public void setProduct_tp(product_tp product_tp)
+    {
+        this.product_tp = product_tp;
+    }*/
+
 
     public users getOwner() {
         return owner;

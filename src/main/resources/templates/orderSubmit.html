@@ -12,15 +12,31 @@
 
 <div class="container mt-5">
 
-    <h1>Выберите тип товара</h1>
+    <h1>Регистрация заказа</h1>
 
-    <form method="get" th:action="@{/order/details}">
-        <select size="1" name="types">
-            <option disabled>Типы товаров</option>
-            <div th:each="el : ${types}">
-                <option name="product_type" th:text="${el}"></option>
+    <h4>Выберите компанию</h4>
+
+    <form method="post" th:action="@{/order/submit}">
+
+        <select name="product_type" size="1">
+            <option name="product_type" th:text="${product_type}" ></option>
+        </select>
+
+        <select name="productDescrp" size="1">
+            <option name="productDescrp" th:text="${productDescrp}" ></option>
+        </select>
+
+        <select name="date" size="1">
+            <option name="date" th:text="${date}" ></option>
+        </select>
+
+        <select size="1" name="company">
+            <div th:each="el : ${companies}">
+                <option name="company" th:text="${el.companyname}"></option>
             </div>
         </select>
+
+
         <button type="submit">Далее</button>
     </form>
 
