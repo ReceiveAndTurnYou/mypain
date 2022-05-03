@@ -7,6 +7,7 @@ import com.example.mypain.models.users;
 import com.example.mypain.repositories.delivery_companyRepository;
 import com.example.mypain.repositories.product_orderRepository;
 import com.example.mypain.repositories.product_tpRepository;
+import com.example.mypain.service.OrderChequeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,9 @@ public class product_orderController {
 
     @Autowired
     private delivery_companyRepository delivery_companyRepository;
+
+    @Autowired
+    private OrderChequeService orderChequeService;
 
     @GetMapping
     public String main(Model model, @AuthenticationPrincipal users user)
@@ -115,16 +119,12 @@ public class product_orderController {
 
         product_order product_order = new product_order(user, product_tp, delivery_company, date);
 
-        String chequeText = "Клиент: " + user.getUsername() + "!\n" +
-                "Заказан тип товара: " + product_order.getProductTypeName().getProducttptype() + "\n"
-                + "Дата: " + product_order.getOrderDate() + ".\n"
-                + "Компания: " + product_order.getCompany().getCompanyname() + ".\n"
-                + "Aenpka Company Inc.";
+        String chequeText = orderChequeService.chequeMessageGenerate(user, product_order);
 
 
         product_orderRepository.save(product_order);
 
-
+        orderChequeService.saveCheque(chequeText, product_order.getIdproduct_order());
 
 
         return "orderSuccess";
