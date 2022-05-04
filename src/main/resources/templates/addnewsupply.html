@@ -13,11 +13,11 @@
 
 <div class="container mt-5">
     <form th:action="@{/addnewsupply}" method="post">
-        <div><label> Номер: <input type="text" name="productnumber" class="form-control"/> </label></div>
-        <div><label> Тип товара: <input type="text" name="product_type" class="form-control"/> </label></div>
+        <div><label> Номер: <input type="text" required minlength="1" name="productnumber" class="form-control"/> </label></div>
+        <div><label> Тип товара: <input type="text" required minlength="4" name="product_type" class="form-control"/> </label></div>
         <div><label> Плотность: <input type="text" name="product_density" class="form-control"/> </label></div>
-        <div><label> Условия хранения: <input type="text" name="product_conditions" class="form-control"/> </label></div>
-        <div><label> Количество: <input type="text" name="product_count" class="form-control"/> </label></div>
+        <div><label> Условия хранения: <input type="text" required minlength="2" name="product_conditions" class="form-control"/> </label></div>
+        <div><label> Количество: <input type="text" required minlength="1" name="product_count" class="form-control"/> </label></div>
         <div> <button type="submit" class="btn btn-success">Добавить  товар</button></div>
     </form>
 

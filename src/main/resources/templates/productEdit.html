@@ -14,11 +14,11 @@
 
 <div class="container mt-5">
     <form th:action="@{/products} + '/edit'" method="post">
-        <div><label> Тип товара: <input type="text" th:value="${prods.productnumber}" name="productnumber" class="form-control"/> </label></div>
-        <div><label> Номер: <input type="text" th:value="${prods.product_type}" name="product_type" class="form-control"/> </label></div>
-        <div><label> Плотность: <input type="text" th:value="${prods.product_density}" name="product_density" class="form-control"/> </label></div>
-        <div><label> Условия хранения: <input type="text" th:value="${prods.product_conditions}" name="product_conditions" class="form-control"/> </label></div>
-        <div><label> Количество: <input type="text" th:value="${prods.product_count}" name="product_count" class="form-control"/> </label></div>
+        <div><label> Тип товара: <input type="text" required minlength="4" th:value="${prods.productnumber}" name="productnumber" class="form-control"/> </label></div>
+        <div><label> Номер: <input type="text" required minlength="1" th:value="${prods.product_type}" name="product_type" class="form-control"/> </label></div>
+        <div><label> Плотность: <input type="text" required minlength="2" th:value="${prods.product_density}" name="product_density" class="form-control"/> </label></div>
+        <div><label> Условия хранения: <input type="text" minlength="2" required th:value="${prods.product_conditions}" name="product_conditions" class="form-control"/> </label></div>
+        <div><label> Количество: <input type="text" required minlength="1" th:value="${prods.product_count}" name="product_count" class="form-control"/> </label></div>
         <label><input type="hidden" th:value="${prods.idproduct_wh}" name="idproduct_wh" class="form-control"/> </label>
         <div> <button type="submit" class="btn btn-success">Изменить</button></div>
     </form>

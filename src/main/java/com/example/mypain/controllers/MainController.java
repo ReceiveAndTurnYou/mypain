@@ -12,7 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Controller
 public class MainController {
@@ -44,7 +49,30 @@ public class MainController {
         return "about";
     }
 
+    @PostMapping("/about")
+    public String review(@RequestParam String review, @AuthenticationPrincipal users user)
+    {
+        File directory = new File("C:/Users/Goope/Desktop/mypain/reviews/");
+        String path = directory.getPath();
 
+        String newreview = "Отзыв: " +  review + "\n" + "=========================" + "\n" + "Кто оставил: " + user.getUsername();
+
+        int randomNum = ThreadLocalRandom.current().nextInt(1, 999 + 1);
+
+        String chequePathName = path + "/review" + randomNum  + ".txt";
+        File chequeFile = new File(chequePathName);
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(chequeFile));
+            writer.write(newreview);
+            writer.flush();
+            writer.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        return "redirect:/about";
+    }
 }
 
 

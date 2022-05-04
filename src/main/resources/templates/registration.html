@@ -30,33 +30,33 @@
                                   <p class="text-white-50 mb-5">Пожалуйста заполните поля ниже!</p>
 
                                   <div class="form-outline form-white mb-4">
-                                      <input type="text" placeholder="Введите ваш логин..." name="username" id="typeEmailX" class="form-control form-control-lg" />
-                                      <label class="form-label" for="typeEmailX">Имя</label>
+                                      <input type="text" required minlength="4" placeholder="Введите ваш логин..." name="username" id="typeEmailX" class="form-control form-control-lg" />
+                                      <label class="form-label" for="typeEmailX">Логин</label>
                                   </div>
 
                                   <div class="form-outline form-white mb-4">
-                                      <input type="text" placeholder="Введите вашу фамилию..." name="surname" id="typePasswordX" class="form-control form-control-lg" />
+                                      <input type="text" required minlength="4" placeholder="Введите вашу фамилию..." name="surname" id="typePasswordX" class="form-control form-control-lg" />
                                       <label class="form-label" for="typePasswordX">Фамилия</label>
                                   </div>
 
                                   <div class="form-outline form-white mb-4">
-                                      <input type="text" placeholder="Введите ваше имя..." name="login" id="typeTextX" class="form-control form-control-lg" />
+                                      <input type="text" required minlength="4" placeholder="Введите ваше имя..." name="login" id="typeTextX" class="form-control form-control-lg" />
                                       <label class="form-label" for="typeTextX">Имя</label>
                                   </div>
 
                                   <div class="form-outline form-white mb-4">
-                                      <input type="password" placeholder="Введите ваш пароль" name="password" id="typeText2X" class="form-control form-control-lg" />
+                                      <input type="password" required minlength="4" placeholder="Введите ваш пароль" name="password" id="typeText2X" class="form-control form-control-lg" />
                                       <label class="form-label" for="typeText2X">Пароль</label>
                                   </div>
 
                                   <div class="form-outline form-white mb-4">
-                                      <input type="text" placeholder="Введите вашу страну" name="country" id="typeLoginX" class="form-control form-control-lg" />
+                                      <input type="text" required minlength="4"  placeholder="Введите вашу страну" name="country" id="typeLoginX" class="form-control form-control-lg" />
                                       <label class="form-label" for="typeLoginX">Страна</label>
                                   </div>
 
 
                                   <div class="form-outline form-white mb-4">
-                                      <input type="email" placeholder="Введите вашу электронную почту" name="email" id="typeCountryX" class="form-control form-control-lg" />
+                                      <input type="email" required placeholder="Введите вашу электронную почту" name="email" id="typeCountryX" class="form-control form-control-lg" />
                                       <label class="form-label" for="typeCountryX">Электронная почта</label>
                                   </div>
 
@@ -64,8 +64,6 @@
                                       <input type="file" name="file" id="typeImageX" class="form-control form-control-lg" />
                                       <label class="form-label" for="typeCountryX">Загрузить картинку профиля(опционально)</label>
                                   </div>
-
-                                  <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Забыли пароль?</a></p>
 
                                   <button class="btn btn-outline-light btn-lg px-5" type="submit">Зарегистрироваться</button>
                               </form>
