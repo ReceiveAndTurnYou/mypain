@@ -18,7 +18,7 @@
         <button type="submit" class="btn btn-secondary">Найти</button>
     </form>
 
-    <div class="float-end">
+    <div  sec:authorize="hasAuthority('ADMIN')" class="float-end">
         <a class="btn btn-info text-white" href="/products2">Добавить новый товар</a>
     </div>
 

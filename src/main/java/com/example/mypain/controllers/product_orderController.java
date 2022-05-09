@@ -125,7 +125,7 @@ public class product_orderController {
     }
 
 
-    @GetMapping("/orders")
+   /* @GetMapping("/orders")
     public String showOrders(@AuthenticationPrincipal users user,
                              Model model)
     {
@@ -133,5 +133,16 @@ public class product_orderController {
         model.addAttribute("orders", orders);
 
         return "orderUserList";
+    }*/
+
+    @GetMapping("/orders")
+    public String showOrders(@AuthenticationPrincipal users user,
+                             Model model)
+    {
+        List<product_order> orders = (List<product_order>) product_orderRepository.findAll();
+        model.addAttribute("orders", orders);
+
+        return "orderUserList";
     }
+
 }
