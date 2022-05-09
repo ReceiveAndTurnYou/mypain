@@ -30,10 +30,11 @@
             <div class="col">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 th:text="'Тип товара: '+ ${el.product_type}" class="card-title"></h5>
+                        <h5 th:text="'Тип товара: '+ ${el.type.producttptype}" class="card-title"></h5>
+                        <p th:text="'Описание: ' + ${el.type.product_tp_description}" class="card-text"></p>
                         <p th:text="'Номер: ' + ${el.productnumber}" class="card-text"></p>
-                        <p th:text="'Плотность: ' + ${el.product_density}" class="card-text"></p>
-                        <p th:text="'Условия хранения: ' + ${el.product_conditions}" class="card-text"></p>
+                       <!-- <p th:text="'Плотность: ' + ${el.product_density}" class="card-text"></p>
+                        <p th:text="'Условия хранения: ' + ${el.product_conditions}" class="card-text"></p>-->
                         <p th:text="'Количество: ' + ${el.product_count}" class="card-text"></p>
                     </div>
                     <div class="card-footer text-muted">

@@ -4,7 +4,6 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import com.example.mypain.models.product_tp;
-/////////////ДОДЕЛАТЬ СВЯЗКА С PRODUCT_TP //////////////
 
 @Entity
 public class product_wh {
@@ -23,8 +22,17 @@ public class product_wh {
     @JoinColumn(name="user_id")
     private users owner;
 
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="product_tp_id")
+    private product_tp type;
 
+    public product_tp getType() {
+        return type;
+    }
 
+    public void setType(product_tp type) {
+        this.type = type;
+    }
 
     public users getOwner() {
         return owner;
@@ -36,6 +44,23 @@ public class product_wh {
 
     public product_wh() {
     }
+
+    public product_wh(int productnumber, int product_count, users owner, product_tp producttptype) {
+        this.productnumber = productnumber;
+        this.product_count = product_count;
+        this.owner = owner;
+        this.type = producttptype;
+    }
+
+//    public product_wh(int productnumber, String product_type, String product_density, String product_conditions, int product_count, users owner, product_tp producttptype) {
+//        this.productnumber = productnumber;
+//        this.product_type = product_type;
+//        this.product_density = product_density;
+//        this.product_conditions = product_conditions;
+//        this.product_count = product_count;
+//        this.owner = owner;
+//        this.type = producttptype;
+//    }
 
     public product_wh(int productnumber, String product_type, String product_density, String product_conditions, int product_count, users user) {
         this.productnumber = productnumber;

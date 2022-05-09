@@ -55,16 +55,6 @@ public class product_orderController {
     }
 
 
-    @GetMapping("/orders")
-    public String showOrders(@AuthenticationPrincipal users user,
-                             Model model)
-    {
-        List<product_order> orders = product_orderRepository.findByClient(user);
-        model.addAttribute("orders", orders);
-
-        return "orderUserList";
-    }
-
     @GetMapping("/details")
     public String detail(@RequestParam String types,
                          Model model, @AuthenticationPrincipal users user)
@@ -130,4 +120,14 @@ public class product_orderController {
         return "orderSuccess";
     }
 
+
+    @GetMapping("/orders")
+    public String showOrders(@AuthenticationPrincipal users user,
+                             Model model)
+    {
+        List<product_order> orders = product_orderRepository.findByClient(user);
+        model.addAttribute("orders", orders);
+
+        return "orderUserList";
+    }
 }
