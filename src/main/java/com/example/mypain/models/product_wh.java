@@ -23,19 +23,7 @@ public class product_wh {
     @JoinColumn(name="user_id")
     private users owner;
 
-    /*@ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="producttptype")
-    private product_tp product_tp;
 
-
-    public product_tp getProduct_tp() {
-        return product_tp;
-    }
-
-    public void setProduct_tp(product_tp product_tp)
-    {
-        this.product_tp = product_tp;
-    }*/
 
 
     public users getOwner() {

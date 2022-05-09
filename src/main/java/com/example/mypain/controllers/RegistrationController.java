@@ -44,13 +44,13 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String addUser(users user, Map<String, Object> model, @RequestParam("file") MultipartFile file) throws IOException {
 
-        if(!usersService.addUserS(user))
+        if(!usersService.addUserS(user, file))
         {
             model.put("message", "user exits");
             return "registration";
         }
 
-        if(!file.isEmpty())
+       /* if(!file.isEmpty())
         {
             File uploadDir = new File(uploadPath);
 
@@ -65,7 +65,7 @@ public class RegistrationController {
             file.transferTo(new File(uploadPath + "/" + resultFileName));
 
             user.setFilename(resultFileName);
-        }
+        }*/
 
 
         /*user.setRoles(Collections.singleton(Role.USER));
