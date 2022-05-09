@@ -19,7 +19,7 @@
     </form>
 
     <div class="float-end">
-        <a class="btn btn-info text-white" href="/addnewsupply">Добавить новый товар</a>
+        <a class="btn btn-info text-white" href="/products2">Добавить новый товар</a>
     </div>
 
     <h1>ТОВАРЫ</h1>
@@ -33,8 +33,8 @@
                         <h5 th:text="'Тип товара: '+ ${el.type.producttptype}" class="card-title"></h5>
                         <p th:text="'Описание: ' + ${el.type.product_tp_description}" class="card-text"></p>
                         <p th:text="'Номер: ' + ${el.productnumber}" class="card-text"></p>
-                       <!-- <p th:text="'Плотность: ' + ${el.product_density}" class="card-text"></p>
-                        <p th:text="'Условия хранения: ' + ${el.product_conditions}" class="card-text"></p>-->
+                        <p th:text="'Плотность: ' + ${el.type.product_density}" class="card-text"></p>
+                        <p th:text="'Условия хранения: ' + ${el.type.product_conditions}" class="card-text"></p>
                         <p th:text="'Количество: ' + ${el.product_count}" class="card-text"></p>
                     </div>
                     <div class="card-footer text-muted">

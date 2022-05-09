@@ -13,7 +13,7 @@
 
 <div class="container mt-5">
 
-    <h1>Список заказов</h1>
+    <h1>Список доставок</h1>
 
     <div th:each="el : ${orders}">
         <div class="card-columns">
@@ -24,6 +24,8 @@
                             <h5 th:text="'Заказчик: '+ ${el.client.username}" class="card-title"></h5>
                             <p th:text="'Тип товара: ' + ${el.productTypeName.producttptype}" class="card-text"></p>
                             <p th:text="'Описание товара: ' + ${el.productTypeName.product_tp_description}" class="card-text"></p>
+                            <p th:text="'Плотность товара: ' + ${el.productTypeName.product_density}" class="card-text"></p>
+                            <p th:text="'Условия хранения товара: ' + ${el.productTypeName.product_conditions}" class="card-text"></p>
                             <p th:text="'Название компании: ' + ${el.company.companyname}" class="card-text"></p>
                             <p th:text="'Дата доставки: ' + ${el.orderDate}" class="card-text"></p>
                         </div>

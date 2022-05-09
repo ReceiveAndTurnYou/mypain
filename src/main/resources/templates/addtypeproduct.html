@@ -15,6 +15,8 @@
     <form th:action="@{/addtypeproduct}" method="post">
         <div><label> Тип товара: <input type="text" minlength="4" name="producttptype" required class="form-control"/> </label></div>
         <div><label> Описание типа товара: <input type="text" minlength="10" name="product_tp_description" required class="form-control"/> </label></div>
+        <div><label> Плотность товара: <input type="text" minlength="1" name="product_density" required class="form-control"/> </label></div>
+        <div><label> Условия хранения: <input type="text" minlength="2" name="product_conditions" required class="form-control"/> </label></div>
         <div> <button type="submit" class="btn btn-success">Добавить  тип товара</button></div>
     </form>
 

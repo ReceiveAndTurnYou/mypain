@@ -38,11 +38,13 @@ public class product_tpController {
     @PostMapping("/addtypeproduct")
     public String addTypeProd(
                     @RequestParam String producttptype,
-                    @RequestParam String product_tp_description
+                    @RequestParam String product_tp_description,
+                    @RequestParam String product_density,
+                    @RequestParam String product_conditions
     )
     {
 
-        product_tp prod = new product_tp(producttptype, product_tp_description);
+        product_tp prod = new product_tp(producttptype, product_tp_description, product_density, product_conditions);
 
         product_tpRepository.save(prod);
 

@@ -5,8 +5,6 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 
 
-////////////////// ДОРАБОТАТЬ И СВЯЗКИ /////////////////////
-
 
 @Entity
 public class product_order {

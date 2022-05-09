@@ -72,6 +72,8 @@ public class product_orderController {
     @GetMapping("/chooseCompany")
     public String chooseCompany(@RequestParam String product_type,
                                 @RequestParam String productDescrp,
+                                @RequestParam String product_density,
+                                @RequestParam String product_conditions,
                                 @RequestParam String date,
                                 @AuthenticationPrincipal users user,
                                 Model model)
@@ -80,6 +82,8 @@ public class product_orderController {
         List<delivery_company>  delivery_companies = (List<delivery_company>) delivery_companyRepository.findAll();
 
 
+        model.addAttribute("product_density", product_density);
+        model.addAttribute("product_conditions", product_conditions);
         model.addAttribute("companies", delivery_companies);
         model.addAttribute("date", date);
         model.addAttribute("product_type", product_type);

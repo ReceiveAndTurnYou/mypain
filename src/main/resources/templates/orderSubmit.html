@@ -12,24 +12,38 @@
 
 <div class="container mt-5">
 
-    <h1>Регистрация заказа</h1>
+    <h1>Регистрация доставки</h1>
 
     <h4>Выберите компанию</h4>
 
     <form method="post" th:action="@{/order/submit}">
 
+        Тип товара:
         <select name="product_type" size="1">
             <option name="product_type" th:text="${product_type}" ></option>
         </select>
 
+        Описание товара:
         <select name="productDescrp" size="1">
             <option name="productDescrp" th:text="${productDescrp}" ></option>
         </select>
 
+        Плотность товара:
+        <select name="product_density" size="1">
+            <option name="product_density" th:text="${product_density}" ></option>
+        </select>
+
+        Условия хранения:
+        <select name="product_conditions" size="1">
+            <option name="product_conditions" th:text="${product_conditions}" ></option>
+        </select>
+
+        Дата доставки:
         <select name="date" size="1">
             <option name="date" th:text="${date}" ></option>
         </select>
 
+        Компания:
         <select size="1" name="company">
             <div th:each="el : ${companies}">
                 <option name="company" th:text="${el.companyname}"></option>
