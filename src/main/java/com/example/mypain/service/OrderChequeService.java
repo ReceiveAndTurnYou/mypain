@@ -20,6 +20,7 @@ public class OrderChequeService
                 "Заказан тип товара: " + order.getProductTypeName().getProducttptype() + "\n"
                 + "Дата: " + order.getOrderDate() + ".\n"
                 + "Компания: " + order.getCompany().getCompanyname() + ".\n"
+                + "Адрес: " + order.getAddress() + "\n"
                 + "Aenpka Company Inc.";
         return chequeText;
 

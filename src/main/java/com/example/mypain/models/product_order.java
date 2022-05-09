@@ -52,8 +52,18 @@ public class product_order {
     private delivery_company company;
 
     private String orderDate;
+    private String address;
+
 
     public product_order() {
+    }
+
+    public product_order(users client, product_tp productTypeName, delivery_company company, String orderDate, String address) {
+        this.client = client;
+        this.productTypeName = productTypeName;
+        this.company = company;
+        this.orderDate = orderDate;
+        this.address = address;
     }
 
     public product_order(users user, product_tp productTypeName, delivery_company company, String orderDate) {
@@ -61,6 +71,14 @@ public class product_order {
         this.productTypeName = productTypeName;
         this.company = company;
         this.orderDate = orderDate;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public users getClient() {

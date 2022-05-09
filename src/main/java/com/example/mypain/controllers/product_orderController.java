@@ -99,7 +99,8 @@ public class product_orderController {
                         @RequestParam String product_type,
                         @RequestParam String productDescrp,
                         @RequestParam String date,
-                        @RequestParam String company
+                        @RequestParam String company,
+                        @RequestParam String address
     )
     {
 
@@ -111,7 +112,7 @@ public class product_orderController {
 
         delivery_company delivery_company = delivery_companies.get(0);
 
-        product_order product_order = new product_order(user, product_tp, delivery_company, date);
+        product_order product_order = new product_order(user, product_tp, delivery_company, date, address);
 
         String chequeText = orderChequeService.chequeMessageGenerate(user, product_order);
 
@@ -142,6 +143,15 @@ public class product_orderController {
         List<product_order> orders = (List<product_order>) product_orderRepository.findAll();
         model.addAttribute("orders", orders);
 
+        return "OrderList";
+    }
+
+    @GetMapping("/orderUserList")
+    public String showUserOrders(@AuthenticationPrincipal users user,
+                                 Model model)
+    {
+        List<product_order> orders = product_orderRepository.findByClient(user);
+        model.addAttribute("orders", orders);
         return "orderUserList";
     }
 
